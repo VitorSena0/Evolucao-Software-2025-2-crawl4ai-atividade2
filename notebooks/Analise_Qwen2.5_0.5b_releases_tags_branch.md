@@ -47,7 +47,7 @@ print("\n=== MERGES (sinais) ===\n", merges_signal)
 
 ---
 
-## Célula 3 — Pegar Releases via API do GitHub (datas oficiais)
+## Célula 3 — Pegar Releases via API do GitHub
 ```python
 import requests
 
