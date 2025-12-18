@@ -37,7 +37,7 @@ branches_head = sh("git branch -a | head -n 80")
 # tags v* (amostra)
 tags_v = sh("git for-each-ref --sort=-creatordate --format='%(refname:short) | %(creatordate:iso8601)' refs/tags | grep -E '^v' | head -n 40")
 
-# merges (sinais) - opcional (pode comentar se o modelo repetir)
+# merges (sinais) 
 merges_signal = sh("git log --oneline --decorate --all --merges -n 250 | grep -Ei 'main|develop|next|release/|hotfix' | sort -u | head -n 60")
 
 print("=== BRANCHES (amostra) ===\n", branches_head)
@@ -68,7 +68,7 @@ print(releases_txt)
 
 ---
 
-## Célula 4 — Montar pacote de evidências (pra mostrar no vídeo)
+## Célula 4 — Montar pacote de evidências
 ```python
 evidencias = f"""
 REPO: {REPO_URL}
