@@ -127,7 +127,25 @@ Utiliza otimização SDPA para máxima eficiência. Coleta logs de merge, CHANGE
 
 **Guia detalhado**: [docs/tutorial_phi_3_5_mini_instruct.md](docs/tutorial_phi_3_5_mini_instruct.md)
 
-### Tutorial 4: CodeLlama-7B-Instruct
+### Tutorial 4: Llama-3.1-8B-Instruct
+**Responsável**: Felipe Osni
+
+#### Infraestrutura utilizada
+- **Plataforma**: Google Colab
+- **CPU**: 1 núcleo
+- **Memória RAM**: 12.7GB
+- **Disco**: 107.7GB
+
+##### Como executar
+1. Abra o notebook correspondente no Colab.
+2. Ative a Internet.
+3. Configure a variável de ambiente para inferência remota HF_TOKEN.
+4. Execute as células de 1 a 6 sequencialmente.
+5. O resultado será salvo em `resposta-llama-3_1-8B-Instruct.md` na pasta de arquivos.
+
+**Guia detalhado**: [docs/tutorial_llama_3_1_8B_Instruct.md](docs/tutorial_llama_3_1_8B_Instruct.md)
+
+### Tutorial 5: CodeLlama-7B-Instruct
 **Responsável**: Vitor Leonardo
 
 #### Infraestrutura utilizada
@@ -145,7 +163,7 @@ Utiliza otimização SDPA para máxima eficiência. Coleta logs de merge, CHANGE
 
 **Guia detalhado**: [docs/codellama7B_tutorial.md](docs/codellama7B_tutorial.md)
 
-### Tutorial 5: Qwen2.5-7B-Instruct
+### Tutorial 6: Qwen2.5-7B-Instruct
 **Responsável**: David Silva
 
 #### Infraestrutura utilizada
