@@ -1,117 +1,116 @@
-Auditoria de Engenharia de Software com Mistral-7B
+# Tutorial Técnico: Auditoria de Engenharia de Software com Mistral-7B
 
-Este repositório contém um notebook técnico para auditoria automatizada de engenharia de software aplicada ao projeto Crawl4AI.
-A análise utiliza o modelo Mistral-7B-Instruct-v0.3 para identificar:
+Este guia descreve o funcionamento do notebook desenvolvido para a análise técnica do repositório **Crawl4AI**.  
+O objetivo é utilizar o modelo **Mistral-7B-Instruct-v0.3** para identificar:
 
-Modelo de branching
+- Modelo de Branching  
+- Estratégia de Release  
+- Diretrizes de governança  
 
-Estratégia de release
+Tudo isso por meio da **extração automatizada de evidências reais** diretamente do repositório analisado.
 
-Diretrizes de governança de software
+---
 
-Todas as conclusões são baseadas em evidências reais extraídas automaticamente do repositório, como branches, tags, workflows e changelog.
+## Infraestrutura e Otimização
 
-🧠 Modelo Utilizado
+Para viabilizar a execução de um modelo de grande porte em hardware gratuito, foram aplicadas as seguintes técnicas de otimização no ambiente **Kaggle**:
 
-Mistral-7B-Instruct-v0.3
+- **GPU NVIDIA Tesla T4**  
+  Acelerador de hardware utilizado para suportar a carga computacional do modelo.
 
-Modelo de linguagem otimizado para tarefas de análise técnica, instruções estruturadas e geração de relatórios objetivos.
+- **Quantização 4-bit (BitsAndBytes)**  
+  Comprime os pesos do modelo, permitindo que os 7 bilhões de parâmetros do Mistral ocupem menos VRAM, sem perda significativa de precisão.
 
-🖥️ Infraestrutura e Otimizações
+- **Gerenciamento de Memória (Accelerate)**  
+  Utilização de `device_map="auto"` para garantir que o modelo seja distribuído corretamente na memória disponível.
 
-Para permitir a execução de um modelo de grande porte em ambiente gratuito (Kaggle), foram aplicadas as seguintes estratégias:
+---
 
-GPU NVIDIA Tesla T4
-Acelerador utilizado para suportar a inferência do modelo.
+## Execução das Células
 
-Quantização em 4 bits (BitsAndBytes)
-Reduz significativamente o consumo de VRAM sem perda relevante de desempenho.
+### Célula 1: Instalação de Dependências
 
-Gerenciamento Automático de Memória (Accelerate)
-Uso de device_map="auto" para alocação eficiente dos pesos do modelo.
+Prepara o ambiente com as bibliotecas necessárias para carregar modelos quantizados e gerenciar a inferência via PyTorch.
 
-📓 Estrutura do Notebook
-Célula 1 — Instalação de Dependências
+    !pip install -q -U transformers accelerate bitsandbytes
 
-Instala as bibliotecas necessárias para:
+---
 
-Carregamento de modelos Hugging Face
+### Célula 2: Clonagem do Repositório
 
-Quantização 4-bit
+Baixa silenciosamente o código-fonte do **Crawl4AI**, permitindo a mineração de metadados.
 
-Inferência com PyTorch
+    !git clone https://github.com/unclecode/crawl4ai.git
 
-pip install -q -U transformers accelerate bitsandbytes
+---
 
-Célula 2 — Clonagem do Repositório
+### Célula 3: Extração Automatizada de Evidências
 
-Clona o repositório Crawl4AI para permitir a extração de metadados.
+Etapa central de **curadoria técnica**.  
+O script utiliza o módulo `subprocess` para extrair dados brutos que servem como **provas reais** para a análise da IA:
 
-git clone https://github.com/unclecode/crawl4ai.git
+- **Histórico de Tags**  
+  Coleta versões e datas de criação.
 
-Célula 3 — Extração Automatizada de Evidências
+- **Mapeamento de Branches**  
+  Identifica a existência de branches como `develop`, `feature` e `master`.
 
-Realiza a curadoria técnica dos dados que servirão como evidência factual para o modelo. São coletados:
+- **Workflows CI/CD**  
+  Lista arquivos YAML relacionados à automação.
 
-Histórico de tags (versões e datas)
+- **Contexto do Changelog**  
+  Captura registros recentes de mudanças no projeto.
 
-Mapeamento de branches (ex.: main, develop, feature/*)
+---
 
-Workflows de CI/CD (arquivos YAML)
+### Célula 4: Carregamento do Modelo Mistral-7B
 
-Trechos recentes do changelog
+Configura a quantização em **4-bit** e inicializa o modelo **Mistral-7B-Instruct-v0.3**.  
+O uso de instruções específicas do Mistral proporciona uma análise mais lógica e menos prolixa do que modelos menores.
 
-A extração é feita via subprocess, garantindo fidelidade aos dados do repositório.
+---
 
-Célula 4 — Carregamento do Modelo
+### Célula 5: Engenharia de Prompt
 
-Inicializa o Mistral-7B-Instruct-v0.3 com quantização 4-bit.
-O uso da versão Instruct garante respostas mais analíticas e menos verbosas.
+Define o papel da IA como um **Analista de Engenharia de Software Sênior**.  
+O prompt:
 
-Célula 5 — Engenharia de Prompt
+- Injeta os dados extraídos na Célula 3  
+- Solicita um veredito técnico estruturado  
+- Garante a saída em português
 
-Define o papel do modelo como um Analista Sênior de Engenharia de Software.
-O prompt injeta os dados coletados e solicita um veredito técnico estruturado, em português.
+---
 
-Célula 6 — Inferência e Relatório Final
+### Célula 6: Inferência e Relatório Final
 
-Executa a inferência com base no contexto acumulado
+O modelo processa todo o contexto acumulado e gera o veredito técnico final.  
+A saída passa por um tratamento para exibir apenas a análise limpa, facilitando a leitura do relatório de auditoria.
 
-Realiza pós-processamento da saída
+---
 
-Exibe apenas a análise técnica final, pronta para leitura e auditoria
+## Como Executar
 
-🚀 Como Executar
+1. **Acelerador**  
+   No menu lateral do Kaggle (Settings), configure o Accelerator para **GPU T4**.
 
-Acelerador
-Em Settings do Kaggle, configure:
+2. **Internet**  
+   Certifique-se de que a opção **Internet: On** está ativada (necessária para baixar o modelo do Hugging Face).
 
-Accelerator: GPU (T4)
+3. **Execução**  
+   Clique em **Run All** (Executar tudo).  
+   O veredito aparecerá na saída da última célula.
 
-Internet
-Ative a opção Internet ON (necessária para baixar o modelo do Hugging Face).
+---
 
-Execução
-Clique em Run All.
-O relatório final será exibido na saída da última célula.
+## O que Esperar do Veredito
 
-📊 O que Esperar do Relatório
+O relatório final gerado pelo notebook apresentará:
 
-O veredito técnico gerado inclui:
+- **Branching Model**  
+  Classificação fundamentada (ex.: GitFlow), baseada na estrutura de branches detectada.
 
-Branching Model
-Classificação fundamentada (ex.: GitFlow), baseada na estrutura real de branches.
+- **Estratégia de Release**  
+  Identificação do modelo de entrega (ex.: Release Train ou Rapid Release).
 
-Estratégia de Release
-Identificação do modelo de entrega adotado (ex.: Rapid Release, Release Train).
-
-Auditoria de Governança
-Avaliação de práticas como:
-
-Padronização de commits
-
-Uso de CI/CD
-
-Testes automatizados
-
-Integração com Docker
+- **Auditoria de Governança**  
+  Avaliação das regras de commit, práticas de teste e integrações (como Docker) observadas nos metadados do repositório.
