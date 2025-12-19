@@ -1,0 +1,117 @@
+Auditoria de Engenharia de Software com Mistral-7B
+
+Este repositório contém um notebook técnico para auditoria automatizada de engenharia de software aplicada ao projeto Crawl4AI.
+A análise utiliza o modelo Mistral-7B-Instruct-v0.3 para identificar:
+
+Modelo de branching
+
+Estratégia de release
+
+Diretrizes de governança de software
+
+Todas as conclusões são baseadas em evidências reais extraídas automaticamente do repositório, como branches, tags, workflows e changelog.
+
+🧠 Modelo Utilizado
+
+Mistral-7B-Instruct-v0.3
+
+Modelo de linguagem otimizado para tarefas de análise técnica, instruções estruturadas e geração de relatórios objetivos.
+
+🖥️ Infraestrutura e Otimizações
+
+Para permitir a execução de um modelo de grande porte em ambiente gratuito (Kaggle), foram aplicadas as seguintes estratégias:
+
+GPU NVIDIA Tesla T4
+Acelerador utilizado para suportar a inferência do modelo.
+
+Quantização em 4 bits (BitsAndBytes)
+Reduz significativamente o consumo de VRAM sem perda relevante de desempenho.
+
+Gerenciamento Automático de Memória (Accelerate)
+Uso de device_map="auto" para alocação eficiente dos pesos do modelo.
+
+📓 Estrutura do Notebook
+Célula 1 — Instalação de Dependências
+
+Instala as bibliotecas necessárias para:
+
+Carregamento de modelos Hugging Face
+
+Quantização 4-bit
+
+Inferência com PyTorch
+
+pip install -q -U transformers accelerate bitsandbytes
+
+Célula 2 — Clonagem do Repositório
+
+Clona o repositório Crawl4AI para permitir a extração de metadados.
+
+git clone https://github.com/unclecode/crawl4ai.git
+
+Célula 3 — Extração Automatizada de Evidências
+
+Realiza a curadoria técnica dos dados que servirão como evidência factual para o modelo. São coletados:
+
+Histórico de tags (versões e datas)
+
+Mapeamento de branches (ex.: main, develop, feature/*)
+
+Workflows de CI/CD (arquivos YAML)
+
+Trechos recentes do changelog
+
+A extração é feita via subprocess, garantindo fidelidade aos dados do repositório.
+
+Célula 4 — Carregamento do Modelo
+
+Inicializa o Mistral-7B-Instruct-v0.3 com quantização 4-bit.
+O uso da versão Instruct garante respostas mais analíticas e menos verbosas.
+
+Célula 5 — Engenharia de Prompt
+
+Define o papel do modelo como um Analista Sênior de Engenharia de Software.
+O prompt injeta os dados coletados e solicita um veredito técnico estruturado, em português.
+
+Célula 6 — Inferência e Relatório Final
+
+Executa a inferência com base no contexto acumulado
+
+Realiza pós-processamento da saída
+
+Exibe apenas a análise técnica final, pronta para leitura e auditoria
+
+🚀 Como Executar
+
+Acelerador
+Em Settings do Kaggle, configure:
+
+Accelerator: GPU (T4)
+
+Internet
+Ative a opção Internet ON (necessária para baixar o modelo do Hugging Face).
+
+Execução
+Clique em Run All.
+O relatório final será exibido na saída da última célula.
+
+📊 O que Esperar do Relatório
+
+O veredito técnico gerado inclui:
+
+Branching Model
+Classificação fundamentada (ex.: GitFlow), baseada na estrutura real de branches.
+
+Estratégia de Release
+Identificação do modelo de entrega adotado (ex.: Rapid Release, Release Train).
+
+Auditoria de Governança
+Avaliação de práticas como:
+
+Padronização de commits
+
+Uso de CI/CD
+
+Testes automatizados
+
+Integração com Docker
