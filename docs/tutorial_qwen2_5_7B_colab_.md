@@ -279,22 +279,75 @@ print("Distribuição:", bucket)
 Solicitar ao modelo que identifique o **modelo de fluxo de trabalho**, utilizando apenas as evidências coletadas.
 
 ```python
-prompt = f"""
-Analise o modelo de branching com base nos dados reais.
+# ===============================
+# CÉLULA 7 — ANÁLISE
+# ===============================
 
+prompt = f"""
+Analise o modelo de branching com base APENAS nas evidências explícitas fornecidas.
+
+REGRAS OBRIGATÓRIAS:
+- NÃO invente branches que não aparecem nos dados
+- NÃO utilize ausência de evidência como prova
+- NÃO trate 'root' como branch real
+- NÃO confunda tags com branches
+- NÃO assuma derivação, merges ou topologia de commits
+- Use somente o que está EXPLICITAMENTE listado
+
+DADOS OBSERVADOS:
+- Existem branches com prefixos: feature, fix, bugfix e release
+- Existe explicitamente a branch: develop
+- NÃO há informação sobre merge-base, PRs ou histórico de commits
+
+DADOS COLETADOS:
 Branches totais: {len(branches)}
+
 Distribuição por prefixo:
 {bucket}
 
-Classifique:
-- GitFlow
-- GitHub Flow
-- Trunk-Based Development
+Amostra de branches:
+{sorted(branches)[:40]}
 
-Justifique com base apenas nas evidências.
+MODELOS A AVALIAR (use definições formais):
+A) GitFlow
+   - branch develop explícita
+   - branches feature/*
+   - branches release/*
+   - branch principal (main/master)
+B) GitHub Flow
+   - branch principal única
+   - NÃO utiliza branches de release
+   - NÃO utiliza branch develop
+C) Trunk-Based Development
+   - integração contínua no trunk
+   - branches extremamente curtas
+   - NÃO utiliza branches de release
+
+TAREFA:
+1. Para CADA modelo, diga se os critérios são ATENDIDOS ou NÃO ATENDIDOS,
+   citando evidências explícitas.
+2. Elimine os modelos incompatíveis.
+3. Escolha UM único modelo final.
+
+FORMATO OBRIGATÓRIO:
+Avaliação GitFlow: ATENDE / NÃO ATENDE
+Avaliação GitHub Flow: ATENDE / NÃO ATENDE
+Avaliação Trunk-Based: ATENDE / NÃO ATENDE
+
+Classificação Final: <A, B ou C>
+
+Justificativa final em até 5 linhas.
+
+IDIOMA:
+Responda SOMENTE em português do Brasil.
 """
 
-print(ask_qwen(prompt))
+
+
+resp = ask_qwen(prompt)
+display(Markdown("## 🌿 Branching Model"))
+display(Markdown(resp))
+
 ```
 
 ---
