@@ -1,0 +1,36 @@
+0.3.4                 | 2024-09-29 |     Release 0.3.4
+docker-rebuild-v0.7.5 | 2025-10-21 |     Merge branch 'develop' into release/v0.7.5
+docker-rebuild-v0.7.6 | 2025-10-22 |     Release v0.7.6: The 0.7.6 Update
+v.3.72                | 2024-10-27 |     Release v.3.72
+v0.0.75               | 2024-07-19 |     v0.0.75
+v0.1.0                | 2024-05-17 |     chore: Add test_pad.py, requirements0.txt, and a.txt to .gitignore
+v0.2.0                | 2024-05-17 |     Merge new-release-0.0.2-no-spacy into main for v0.2.0 release
+v0.2.1                | 2024-05-19 |     Release v0.2.1 Add ONNX model for embedding on CPU devices
+v0.2.2                | 2024-05-19 |     Update CPU model, and boost up embedding speed
+v0.2.4                | 2024-06-17 |     Update version and change log.
+v0.2.6                | 2024-06-22 |     Release v0.2.6
+v0.2.7                | 2024-06-24 |     Release v0.2.7
+v0.2.71               | 2024-06-26 |     Release v0.2.71
+v0.2.72               | 2024-06-30 |     Release v0.2.72
+v0.2.73               | 2024-07-03 |     Release v0.2.73
+v0.2.74               | 2024-07-08 |     Release v0.2.74
+v0.2.77               | 2024-08-04 |     Release v0.2.77
+v0.3.0                | 2024-09-28 |     Release v0.3.0
+v0.3.3                | 2024-09-29 |     Release v0.3.3
+v0.3.6                | 2024-10-14 |     Release v0.3.6
+v0.3.745              | 2024-11-28 |     Release v0.3.745
+v0.3.746              | 2024-11-29 |     v0.3.746 Release
+v0.4.24               | 2024-12-31 |     Release version 0.4.24
+v0.4.243              | 2025-01-01 |     Release version 0.4.243
+v0.5.0.post1          | 2025-03-04 |     Release version 0.5.0.post1
+v0.6.3                | 2025-05-12 |     Set version to 0.6.3
+v0.7.0                | 2025-07-12 |     Merge branch 'release/v0.7.0' - The Adaptive Intelligence Update
+v0.7.1                | 2025-07-17 |     Release v0.7.1: Fix bugs
+v0.7.2                | 2025-07-25 |     chore: Bump version to 0.7.2
+v0.7.3                | 2025-08-09 |     Release v0.7.3
+v0.7.4                | 2025-08-17 |     Release v0.7.4
+v0.7.5                | 2025-10-21 |     Merge branch 'develop' into release/v0.7.5
+v0.7.6                | 2025-10-22 |     Release v0.7.6: The 0.7.6 Update
+vr0.6.0               | 2025-04-23 |     Update README
+vr0.6.0rc1            | 2025-04-22 |     Crawl4AI 0.6.0rc1
+vr0.6.3               | 2025-05-12 |     Release v0.6.3
