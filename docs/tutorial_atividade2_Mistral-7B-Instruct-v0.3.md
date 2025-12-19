@@ -1,6 +1,6 @@
 # Tutorial Técnico: Auditoria de Engenharia de Software com Mistral-7B
 
-Este guia descreve o funcionamento do notebook desenvolvido para a análise técnica do repositório **Crawl4AI**.  
+Este guia descreve o funcionamento do notebook desenvolvido para a **análise técnica do repositório Crawl4AI**.  
 O objetivo é utilizar o modelo **Mistral-7B-Instruct-v0.3** para identificar:
 
 - Modelo de Branching  
@@ -90,13 +90,23 @@ A saída passa por um tratamento para exibir apenas a análise limpa, facilitand
 
 ## Como Executar
 
-1. **Acelerador**  
-   No menu lateral do Kaggle (Settings), configure o Accelerator para **GPU T4**.
+1. **Download do Notebook**  
+   Faça o download do notebook disponível no repositório GitHub:  
+   https://github.com/VitorSena0/Evolucao-Software-2025-2-crawl4ai-atividade2/blob/main/notebooks/crawl4ai-mistral-7b-instruct-v0-3.ipynb
 
-2. **Internet**  
+2. **Importação no Kaggle**  
+   - Acesse https://www.kaggle.com  
+   - Vá em **Create > Notebook**  
+   - Clique em **File > Import Notebook**  
+   - Envie o arquivo `.ipynb` baixado
+
+3. **Configuração do Acelerador**  
+   No menu lateral do Kaggle (**Settings**), configure o **Accelerator** para **GPU T4**.
+
+4. **Ativação da Internet**  
    Certifique-se de que a opção **Internet: On** está ativada (necessária para baixar o modelo do Hugging Face).
 
-3. **Execução**  
+5. **Execução**  
    Clique em **Run All** (Executar tudo).  
    O veredito aparecerá na saída da última célula.
 
