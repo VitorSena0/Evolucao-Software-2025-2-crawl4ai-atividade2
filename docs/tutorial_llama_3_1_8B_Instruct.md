@@ -39,7 +39,7 @@
 ```
     
 - Células 3 (Ingestão de Artefatos): Carrega os arquivos CHANGELOG.md e release.yml para variáveis, servindo como base de evidências para a análise de cadência de lançamentos.  
-```ipynb
+```py
 changelog = ""
 
 releases = ""
@@ -60,7 +60,7 @@ with open("/content/historico_merges.txt", "r") as f:
 ```
 
 - Célula 4 (Engenharia de Prompt): Configura o System Prompt com definições de Gitflow, GitHub Flow e Trunk-Based, estruturando o raciocínio lógico da IA.
-```ipynb
+```py
 system_msg = f"""Você é um Especialista em Engenharia de Software com foco em Gerenciamento de Configuração. Sua tarefa é analisar o repositório "Crawl4AI" para identificar sua Estratégia de Release e seu Fluxo de Trabalho (Branching Model).
 
   
@@ -133,7 +133,7 @@ Histórico de Merges:
 ```
     
 - Célula 5 (Variável de ambiente): Importa bibliotecas para inicializar a variável de ambiente HF_TOKEN.
-```ipynb
+```py
 from google.colab import userdata
 
 import os
@@ -142,7 +142,7 @@ os.environ['HF_TOKEN'] = userdata.get('HF_TOKEN')
 ```
 
 Célula 6 (Carga do Modelo e Auditoria Final): Inicializa o Llama-3.1-8B-Instruct por meio de inferência remota provida pelo Hugging Face e realiza o cruzamento das evidências (logs + YAML) com as regras de engenharia, gerando um relatório técnico em Markdown sobre a governança do projeto.**
-```ipynb
+```py
 from openai import OpenAI
 
 client = OpenAI(
